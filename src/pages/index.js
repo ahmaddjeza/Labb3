@@ -18,11 +18,9 @@ const Home = ({ products }) => (
 );
 
 export async function getStaticProps() {
-  // Fetch data from an external API
   const res = await fetch('https://fakestoreapi.com/products');
   const products = await res.json();
 
-  // Map the data to include image URLs
   const formattedProducts = products.map(product => ({
     id: product.id,
     name: product.title,
